@@ -1,0 +1,23 @@
+from tkinter import *     #importing whole module
+from tkinter.ttk import *
+from time import strftime       #convert date and time objects to their string representation
+
+root = Tk()    #creating tkinter window
+root.title('Clock')
+
+#display time on the label
+def time():
+	string = strftime('%H:%M:%S %p')   #retrieve from system
+	lbl.config(text = string)
+	lbl.after(1000, time)
+
+#Styling the label widget so that clock will look more attractive --> colors, font size, font, bg color
+lbl = Label(root, font = ('calibri', 40, 'bold'),
+			background = 'purple',
+			foreground = 'white')
+
+#position clock at the centre of tkinter window
+lbl.pack(anchor = 'center')
+time()
+
+mainloop()
